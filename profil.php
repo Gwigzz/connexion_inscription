@@ -35,8 +35,8 @@ if (!isset($_SESSION['auth'])) {
             <div>
                 <h2>Vos Informations : </h2>
                 <ul>
-                    <li>Nom : <?= $_SESSION['auth']['name'] ?></li>
-                    <li>Email : <?= $_SESSION['auth']['email'] ?></li>
+                    <li>Nom : <b><?= $_SESSION['auth']['name'] ?></b></li>
+                    <li>Email : <b><?= $_SESSION['auth']['email'] ?></b></li>
                 </ul>
             </div>
         </div>
