@@ -29,7 +29,7 @@ if (!isset($_SESSION['auth'])) {
                 <?php if (isset($_SESSION['success'])) : ?>
                     <?= $_SESSION['success'] ?>
                     <?php unset($_SESSION['success']) ?>
-                    <?php header('Refresh: 3') ?>
+                    <!-- <php header('Refresh: 3') ?> -->
                 <?php endif ?>
             </div>
 

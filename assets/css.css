@@ -19,6 +19,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.4rem;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
 header{
     display: inline-block;
     margin: 1rem 0.5rem 2rem 5%;
