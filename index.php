@@ -35,6 +35,7 @@ if (isset($_SESSION['auth'])) {
                         <?php endforeach ?>
                     </ul>
                     <?php unset($_SESSION['alert']) ?>
+                    <?php header('Refresh: 3') ?>
                 <?php endif ?>
             </div>
 
