@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Demarre la session si nécessaire
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 if (!isset($_SESSION['auth'])) {
     header('Location: index.php?info=no_auth');

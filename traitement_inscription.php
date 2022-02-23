@@ -1,6 +1,8 @@
 <?php
-
-session_start();
+// Demarre la session si nécessaire
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 
 // Unset last session
 if (isset($_SESSION['alert'])) {
@@ -81,11 +83,7 @@ if (
     $request_datas->bindValue(':password', $password, PDO::PARAM_STR);
 
     // Execute request register datas
-    if (!$request_datas->execute([
-        ':firstname' => $user_name,
-        ':email' => $user_email,
-        ':password' => $password,
-    ])) {
+    if (!$request_datas->execute()) {
         $alert[] = 'Une erreur est survenue pendant l\'enregistrement.';
     }
 

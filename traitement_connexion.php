@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Demarre la session si nécessaire
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Unset last session
 if (isset($_SESSION['alert'])) {
@@ -26,7 +29,9 @@ if (
     require_once './db/db.php'; # DB
 
     // Check if email existe or not
-    $req = $db->prepare('SELECT * FROM user WHERE user_email = :log_email');
+    $req = $db->prepare(
+        'SELECT id, user_name, user_email, user_password FROM user WHERE user_email = :log_email'
+    );
     $req->bindValue(':log_email', $user_email, PDO::PARAM_STR);
     $req->execute();
 
@@ -58,7 +63,6 @@ if (
             $alert[] = 'Informations invalide.';
             $error = 1;
         }
-
     } else {
         $alert[] = 'Email non Enregistrée/Trouvé.';
         $error = 1;
@@ -73,7 +77,7 @@ if (
         header('Location: index.php');
         exit();
     }
-}else{
+} else {
     $_SESSION['alert'] = ['Champs Imcomplets/Invalides.'];
 
     header('Location: index.php');
